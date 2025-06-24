@@ -36,7 +36,17 @@ Loops: for, while, do-while, foreach
 
 Jump Statements: break, continue, return
 
-✅ 5. Methods and Parameters
+✅ 5. Arrays
+
+✅ 6. String Manipulations
+
+String Methods
+
+StringBuilder
+
+Regular Expressions
+
+✅ 7. Methods and Parameters
 
 Method Declaration & Calling
 
@@ -48,14 +58,14 @@ Default and Named Parameters
 
 🧱 Phase 2: Object-Oriented Programming (Intermediate)
 
-✅ 6. Classes and Objects
+✅ 8. Classes and Objects
 Fields, Properties, and Methods
 
 Constructors and Destructors
 
 Access Modifiers: public, private, protected, internal
 
-✅ 7. Object-Oriented Principles
+✅ 9. Object-Oriented Principles
 
 Encapsulation
 
@@ -65,7 +75,7 @@ Polymorphism (Compile-time and Runtime)
 
 Abstraction
 
-✅ 8. Advanced OOP
+✅ 10. Advanced OOP
 
 Interfaces
 
@@ -79,7 +89,7 @@ Partial Classes
 
 this, base, and new keywords
 
-✅ 9. Exception Handling
+✅ 11. Exception Handling
 
 try, catch, finally
 
@@ -89,7 +99,7 @@ throw vs throws
 
 🧠 Phase 3: Intermediate to Advanced C#
 
-✅ 10. Collections and Generics
+✅ 12. Collections and Generics
 
 Arrays
 
@@ -99,7 +109,7 @@ Generic Methods and Classes
 
 Collection Interfaces (IEnumerable, ICollection)
 
-✅ 11. Delegates and Events
+✅ 13. Delegates and Events
 
 Delegates and Multicast Delegates
 
@@ -109,7 +119,7 @@ Lambda Expressions
 
 Events and Event Handlers
 
-✅ 12. File I/O
+✅ 14. File I/O
 
 System.IO namespace
 
@@ -117,10 +127,4 @@ Reading and Writing Files (TextReader, StreamReader, StreamWriter)
 
 FileInfo and DirectoryInfo
 
-✅ 13. String Manipulations
 
-String Methods
-
-StringBuilder
-
-Regular Expressions
