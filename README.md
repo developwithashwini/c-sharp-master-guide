@@ -1,3 +1,27 @@
+📘 C# Master Guide – Beginner to Advanced
+
+This is a comprehensive and beautifully styled HTML-based roadmap for mastering C# — from fundamentals to advanced topics. It's perfect for self-learners, educators, and content creators who want a cleanly structured, tutorial-ready resource to learn or teach C# programming.
+
+🚀 What's Included:
+
+✅ Phase 1: Basics of C# (Variables, Control Flow, Arrays, Strings, Methods)
+
+✅ Phase 2: Object-Oriented Programming (Classes, Inheritance, Polymorphism, Interfaces)
+
+✅ Phase 3: Intermediate to Advanced C# (Collections, Delegates, File I/O, Exception Handling)
+
+🎨 Features:
+
+Clean and responsive HTML layout
+
+Dark Mode toggle 🌙
+
+Hover animations and color-coded section blocks
+
+Easy to expand and customize for tutorials or documentation
+
+Mobile-friendly
+
 # c#-master-guide
 
 🔰 Phase 1: Basics of C# (Beginner)
