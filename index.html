@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C# Master Guide</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fa;
+      --text-color: #333;
+      --card-bg: #ffffff;
+      --card-border: #007acc;
+      --highlight: #f0f8ff;
+      --highlight-hover: #e5f3ff;
+    }
+
+    body.dark {
+      --bg-color: #1e1e2f;
+      --text-color: #f0f0f0;
+      --card-bg: #2b2b3c;
+      --card-border: #66ccff;
+      --highlight: #3a3a4d;
+      --highlight-hover: #4d4d61;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding: 40px 20px;
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: var(--card-border);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .phase {
+      background: var(--card-bg);
+      border-left: 6px solid var(--card-border);
+      padding: 25px;
+      margin-bottom: 35px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, background 0.3s;
+    }
+
+    .phase:hover {
+      transform: translateY(-4px);
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checklist > li {
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+      background-color: var(--highlight);
+      padding: 12px 16px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .checklist > li:hover {
+      background-color: var(--highlight-hover);
+    }
+
+    .checklist > li::before {
+      content: "✅";
+      margin-right: 10px;
+      color: green;
+      font-size: 1.1rem;
+    }
+
+    .sublist {
+      margin-top: 10px;
+      padding-left: 25px;
+    }
+
+    .sublist li {
+      font-size: 0.98rem;
+      list-style-type: disc;
+      margin-bottom: 6px;
+    }
+
+    .emoji {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card-border);
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .toggle-theme:hover {
+      background: #005f99;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .checklist > li {
+        font-size: 1rem;
+      }
+
+      .sublist li {
+        font-size: 0.9rem;
+      }
+
+      .toggle-theme {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="toggle-theme" onclick="toggleTheme()">🌙 Toggle Theme</button>
+
+  <h1>📘 C# Master Guide</h1>
+
+  <div class="phase">
+    <h2 class="emoji">🔰 Phase 1: Basics of C# (Beginner)</h2>
+    <ul class="checklist">
+      <li>Introduction to C#
+        <ul class="sublist">
+          <li>What is C#</li>
+          <li>History and Evolution</li>
+          <li>C# vs other languages (Java, C++, Python)</li>
+        </ul>
+      </li>
+      <li>Setup Environment
+        <ul class="sublist">
+          <li>Install Visual Studio / Visual Studio Code</li>
+          <li>Create your first C# console application</li>
+        </ul>
+      </li>
+      <li>Core Syntax
+        <ul class="sublist">
+          <li>Variables and Data Types</li>
+          <li>Operators (Arithmetic, Logical, Comparison)</li>
+          <li>Input and Output (Console.ReadLine / WriteLine)</li>
+          <li>Comments and Formatting</li>
+        </ul>
+      </li>
+      <li>Control Statements
+        <ul class="sublist">
+          <li>If-else</li>
+          <li>Switch-case</li>
+          <li>Loops: for, while, do-while, foreach</li>
+          <li>Jump Statements: break, continue, return</li>
+        </ul>
+      </li>
+      <li>Arrays</li>
+      <li>String Manipulations
+        <ul class="sublist">
+          <li>String Methods</li>
+          <li>StringBuilder</li>
+          <li>Regular Expressions</li>
+        </ul>
+      </li>
+      <li>Methods and Parameters
+        <ul class="sublist">
+          <li>Method Declaration & Calling</li>
+          <li>Pass by Value vs Pass by Reference</li>
+          <li>Method Overloading</li>
+          <li>Default and Named Parameters</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <h2 class="emoji">🧱 Phase 2: Object-Oriented Programming (Intermediate)</h2>
+    <ul class="checklist">
+      <li>Classes and Objects
+        <ul class="sublist">
+          <li>Fields, Properties, and Methods</li>
+          <li>Constructors and Destructors</li>
+          <li>Access Modifiers: public, private, protected, internal</li>
+        </ul>
+      </li>
+      <li>Object-Oriented Principles
+        <ul class="sublist">
+          <li>Encapsulation</li>
+          <li>Inheritance</li>
+          <li>Polymorphism (Compile-time and Runtime)</li>
+          <li>Abstraction</li>
+        </ul>
+      </li>
+      <li>Advanced OOP
+        <ul class="sublist">
+          <li>Interfaces</li>
+          <li>Abstract Classes</li>
+          <li>Sealed Classes</li>
+          <li>Static Classes and Members</li>
+          <li>Partial Classes</li>
+          <li>this, base, and new keywords</li>
+        </ul>
+      </li>
+      <li>Exception Handling
+        <ul class="sublist">
+          <li>try, catch, finally</li>
+          <li>Custom Exceptions</li>
+          <li>throw vs throws</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <h2 class="emoji">🧠 Phase 3: Intermediate to Advanced C#</h2>
+    <ul class="checklist">
+      <li>Collections and Generics
+        <ul class="sublist">
+          <li>Arrays</li>
+          <li>List, Dictionary, HashSet, Queue, Stack</li>
+          <li>Generic Methods and Classes</li>
+          <li>Collection Interfaces (IEnumerable, ICollection)</li>
+        </ul>
+      </li>
+      <li>Delegates and Events
+        <ul class="sublist">
+          <li>Delegates and Multicast Delegates</li>
+          <li>Anonymous Methods</li>
+          <li>Lambda Expressions</li>
+          <li>Events and Event Handlers</li>
+        </ul>
+      </li>
+      <li>File I/O
+        <ul class="sublist">
+          <li>System.IO namespace</li>
+          <li>Reading and Writing Files (TextReader, StreamReader, StreamWriter)</li>
+          <li>FileInfo and DirectoryInfo</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+
+</body>
+</html>
