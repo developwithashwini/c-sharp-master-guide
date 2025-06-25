@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C# Master Guide</title>
+  <style>
+    :root {
+      --bg-color: #f4f7fa;
+      --text-color: #333;
+      --card-bg: #ffffff;
+      --card-border: #007acc;
+      --highlight: #f0f8ff;
+      --highlight-hover: #e5f3ff;
+    }
+
+    body.dark {
+      --bg-color: #1e1e2f;
+      --text-color: #f0f0f0;
+      --card-bg: #2b2b3c;
+      --card-border: #66ccff;
+      --highlight: #3a3a4d;
+      --highlight-hover: #4d4d61;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding: 40px 20px;
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: var(--card-border);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .phase {
+      background: var(--card-bg);
+      border-left: 6px solid var(--card-border);
+      padding: 25px;
+      margin-bottom: 35px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, background 0.3s;
+    }
+
+    .phase:hover {
+      transform: translateY(-4px);
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card-border);
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .toggle-theme:hover {
+      background: #005f99;
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+
+    .content h3 {
+      color: var(--card-border);
+      margin-top: 20px;
+      font-size: 1.4rem;
+    }
+
+    .content p,
+    .content li,
+    .content pre,
+    .content code {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .content ul {
+      margin-left: 20px;
+    }
+
+    pre {
+      background: var(--highlight);
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: var(--highlight);
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+    }
+    th {
+      background: var(--highlight-hover);
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-theme" onclick="document.body.classList.toggle('dark')">🌙 Toggle Theme</button>
+  <h1>📘 C# Master Guide</h1>
+
+  <div class="phase">
+    <h2>✅ 1. Introduction to C#</h2>
+    <div class="content">
+      <h3>📌 What is C#?</h3>
+<p><strong>C#</strong> (pronounced as “C-Sharp”) is a modern, object-oriented programming language developed by Microsoft.</p>
+<p>It was designed to be simple, powerful, type-safe, and modern.</p>
+<p><strong>C# is used to build a wide range of applications:</strong></p>
+<ul>
+  <li>Web applications (using ASP.NET)</li>
+  <li>Desktop apps (using Windows Forms or WPF)</li>
+  <li>Mobile apps (using Xamarin or .NET MAUI)</li>
+  <li>Games (using Unity game engine)</li>
+  <li>APIs and Cloud services</li>
+</ul>
+<h3>🔹 Key Features of C#:</h3>
+<table>
+  <tr><th>Feature</th><th>Description</th></tr>
+  <tr><td>🧱 Object-Oriented</td><td>Supports classes, objects, inheritance, polymorphism</td></tr>
+  <tr><td>🛡️ Type-Safe</td><td>Prevents illegal type conversions</td></tr>
+  <tr><td>🔁 Rich Library</td><td>Has access to .NET libraries to handle almost everything</td></tr>
+  <tr><td>🌍 Platform Independent</td><td>With .NET Core/.NET 5+, it runs on Windows, macOS, and Linux</td></tr>
+  <tr><td>🚀 Fast Development</td><td>Visual Studio helps in writing and debugging C# easily</td></tr>
+</table>
+
+<h3>📌 C# vs Other Programming Languages</h3>
+<table>
+  <tr><th>Feature</th><th>C#</th><th>Java</th><th>C++</th><th>Python</th></tr>
+  <tr><td>Platform</td><td>Cross-platform (.NET Core)</td><td>Cross-platform (JVM)</td><td>Native (OS-specific)</td><td>Cross-platform</td></tr>
+  <tr><td>Compilation</td><td>Compiled to IL (Intermediate Language)</td><td>Compiled to bytecode</td><td>Compiled to machine code</td><td>Interpreted</td></tr>
+  <tr><td>Syntax</td><td>Similar to Java/C++</td><td>Verbose</td><td>Complex</td><td>Simple</td></tr>
+  <tr><td>Speed</td><td>Fast</td><td>Moderate</td><td>Fastest</td><td>Slower</td></tr>
+  <tr><td>Use Case</td><td>Enterprise, Web, Mobile, Game Dev</td><td>Enterprise, Android</td><td>System Software, Game Dev</td><td>AI, Data Science, Scripting</td></tr>
+  <tr><td>Memory Management</td><td>Garbage Collected</td><td>Garbage Collected</td><td>Manual</td><td>Garbage Collected</td></tr>
+</table>
+<h4>🔸 Examples in Different Languages:</h4>
+<pre><code>// C#
+Console.WriteLine("Hello, World!");
+
+// Java
+System.out.println("Hello, World!");
+
+// C++
+#include <iostream>
+int main() {
+  std::cout << "Hello, World!";
+  return 0;
+}
+
+// Python
+print("Hello, World!")</code></pre>
+
+<h3>✅ How C# Converts Code into Machine Code (Step-by-Step Compilation Process)</h3>
+<p>C# doesn’t compile directly to machine code like C or C++. Instead, it follows a 2-step compilation model using the .NET Framework (or .NET Core/.NET 5+).</p>
+<h4>🔁 Step-by-Step Process:</h4>
+<ul>
+  <li><strong>C# Code (Source Code):</strong> You write .cs files containing your code.</li>
+  <li><strong>C# Compiler (csc):</strong> Compiles the code into Intermediate Language (IL).</li>
+</ul>
+<p>✅ IL is platform-independent code, kind of like Java's bytecode.</p>
+<p>📄 This creates an assembly file: <code>.exe</code> for applications or <code>.dll</code> for libraries.</p>
+<ul>
+  <li><strong>IL + Metadata Stored in Assembly</strong>: Includes info about classes, methods, etc. This is a PE (Portable Executable) format.</li>
+  <li><strong>Execution by CLR</strong>: When you run the program, CLR performs:</li>
+  <ul>
+    <li>🔄 Just-In-Time (JIT) Compilation: Converts IL into native machine code.</li>
+    <li>⚙️ Memory Management</li>
+    <li>🧰 Runtime Services like exception handling and security</li>
+  </ul>
+</ul>
+<h4>📝 Visual Flow:</h4>
+<pre><code>Your C# Code (.cs)
+    ↓
+C# Compiler (csc)
+    ↓
+Intermediate Language (IL) + Metadata
+    ↓
+Stored in .exe or .dll
+    ↓
+CLR loads at runtime
+    ↓
+JIT compiles IL to native code
+    ↓
+Your Program Runs on Machine</code></pre>
+
+<h3>✅ What is JIT (Just-In-Time) Compilation?</h3>
+<p>JIT (Just-In-Time) compilation is a process where IL is converted into machine code just before execution.</p>
+<h4>🔧 How JIT Works: Step-by-Step</h4>
+<pre><code>// Example:
+Console.WriteLine("Hello, JIT!");</code></pre>
+<ul>
+  <li>✅ <strong>Step 1:</strong> C# code compiled to IL (stored in .exe/.dll)</li>
+  <li>✅ <strong>Step 2:</strong> CLR loads IL into memory</li>
+  <li>✅ <strong>Step 3:</strong> JIT compiles method to machine code (on first call)</li>
+  <li>✅ <strong>Step 4:</strong> Machine code stored in memory and reused</li>
+</ul>
+<h4>🧠 Summary in Simple Flow:</h4>
+<pre><code>C# Code → Compiled to IL (build time)
+↓ Run Program → CLR loads IL
+↓ Method Called → JIT compiles to native code
+↓ Native code runs on CPU</code></pre>
+<h4>🔍 Types of JIT in .NET:</h4>
+<table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td>Normal JIT</td><td>Compiles code as needed (default behavior)</td></tr>
+  <tr><td>Econo JIT</td><td>Smaller code footprint, used in resource-limited devices</td></tr>
+  <tr><td>Pre-JIT (AOT)</td><td>Compiles entire IL code at install time (e.g., NGen, ReadyToRun)</td></tr>
+</table>
+
+<h4>⚙️ Real Example (Simplified):</h4>
+<pre><code>// IL Code (Generated behind the scenes):
+IL_0000: ldstr "Hello"
+IL_0005: call void [System.Console]::WriteLine(string)
+
+// JIT-Compiled (Simplified Native Code):
+MOV EAX, "Hello"
+CALL printf</code></pre>
+
+<h4>✅ Why JIT Is Smart</h4>
+<ul>
+  <li>⏱️ Compiles only what's needed → saves time and memory.</li>
+  <li>♻️ Reuses compiled code → boosts performance.</li>
+  <li>🌐 Optimizes for the actual environment (e.g., OS, CPU type).</li>
+</ul>
+<h4>🛠 Bonus: JIT vs AOT (Ahead of Time)</h4>
+<table>
+  <tr><th>Feature</th><th>JIT</th><th>AOT (e.g., Native AOT)</th></tr>
+  <tr><td>Timing</td><td>At runtime</td><td>At build or install time</td></tr>
+  <tr><td>Flexibility</td><td>Adapts to machine at runtime</td><td>Fixed, may be faster startup</td></tr>
+  <tr><td>Startup Time</td><td>Slower (compilation happens then)</td><td>Faster (already compiled)</td></tr>
+  <tr><td>Optimization</td><td>Dynamic runtime optimization</td><td>Static optimizations only</td></tr>
+</table>
+<h3>✅ Why Was C# Created When We Already Had Other Languages?</h3>
+<p>Microsoft created C# in 2000 to solve some key industry problems that existing languages like Java, C++, and VB had at the time.</p>
+<h4>🚩 Reasons for Creating C#:</h4>
+<table>
+  <tr><th>Problem in Other Languages</th><th>C# Solution</th></tr>
+  <tr><td>Java was not controlled by Microsoft</td><td>C# gave Microsoft a Java-like language, but tightly integrated with Windows and .NET</td></tr>
+  <tr><td>C++ was complex, prone to memory errors</td><td>C# added garbage collection and type safety</td></tr>
+  <tr><td>VB (Visual Basic) was not modern or scalable</td><td>C# offered modern object-oriented syntax</td></tr>
+  <tr><td>No single language had clean integration with Microsoft's Windows API and tools</td><td>C# + .NET solved that gap</td></tr>
+  <tr><td>Developers needed a modern, secure, easy-to-learn language</td><td>C# was built from scratch to be simple and modern</td></tr>
+</table>
+
+<h3>📌 C# vs Other Programming Languages</h3>
+<table>
+  <tr><th>Feature</th><th>C#</th><th>Java</th><th>C++</th><th>Python</th></tr>
+  <tr><td>Platform</td><td>Cross-platform (.NET Core)</td><td>Cross-platform (JVM)</td><td>Native (OS-specific)</td><td>Cross-platform</td></tr>
+  <tr><td>Compilation</td><td>Compiled to IL (Intermediate Language)</td><td>Compiled to bytecode</td><td>Compiled to machine code</td><td>Interpreted</td></tr>
+  <tr><td>Syntax</td><td>Similar to Java/C++</td><td>Verbose</td><td>Complex</td><td>Simple</td></tr>
+  <tr><td>Speed</td><td>Fast</td><td>Moderate</td><td>Fastest</td><td>Slower</td></tr>
+  <tr><td>Use Case</td><td>Enterprise, Web, Mobile, Game Dev</td><td>Enterprise, Android</td><td>System Software, Game Dev</td><td>AI, Data Science, Scripting</td></tr>
+  <tr><td>Memory Management</td><td>Garbage Collected</td><td>Garbage Collected</td><td>Manual</td><td>Garbage Collected</td></tr>
+</table>
+<h4>🔸 Examples in Different Languages:</h4>
+<pre><code>// C#
+Console.WriteLine("Hello, World!");
+
+// Java
+System.out.println("Hello, World!");
+
+// C++
+#include <iostream>
+int main() {
+  std::cout << "Hello, World!";
+  return 0;
+}
+
+// Python
+print("Hello, World!")</code></pre>
+
+<h3>✅ How C# Converts Code into Machine Code (Step-by-Step Compilation Process)</h3>
+<p>C# doesn’t compile directly to machine code like C or C++. Instead, it follows a 2-step compilation model using the .NET Framework (or .NET Core/.NET 5+).</p>
+<h4>🔁 Step-by-Step Process:</h4>
+<ul>
+  <li><strong>C# Code (Source Code):</strong> You write .cs files containing your code.</li>
+  <li><strong>C# Compiler (csc):</strong> Compiles the code into Intermediate Language (IL).</li>
+</ul>
+<p>✅ IL is platform-independent code, kind of like Java's bytecode.</p>
+<p>📄 This creates an assembly file: <code>.exe</code> for applications or <code>.dll</code> for libraries.</p>
+<ul>
+  <li><strong>IL + Metadata Stored in Assembly</strong>: Includes info about classes, methods, etc. This is a PE (Portable Executable) format.</li>
+  <li><strong>Execution by CLR</strong>: When you run the program, CLR performs:</li>
+  <ul>
+    <li>🔄 Just-In-Time (JIT) Compilation: Converts IL into native machine code.</li>
+    <li>⚙️ Memory Management</li>
+    <li>🧰 Runtime Services like exception handling and security</li>
+  </ul>
+</ul>
+<h4>📝 Visual Flow:</h4>
+<pre><code>Your C# Code (.cs)
+    ↓
+C# Compiler (csc)
+    ↓
+Intermediate Language (IL) + Metadata
+    ↓
+Stored in .exe or .dll
+    ↓
+CLR loads at runtime
+    ↓
+JIT compiles IL to native code
+    ↓
+Your Program Runs on Machine</code></pre>
+
+<h3>✅ What is JIT (Just-In-Time) Compilation?</h3>
+<p>JIT (Just-In-Time) compilation is a process where IL is converted into machine code just before execution.</p>
+<h4>🔧 How JIT Works: Step-by-Step</h4>
+<pre><code>// Example:
+Console.WriteLine("Hello, JIT!");</code></pre>
+<ul>
+  <li>✅ <strong>Step 1:</strong> C# code compiled to IL (stored in .exe/.dll)</li>
+  <li>✅ <strong>Step 2:</strong> CLR loads IL into memory</li>
+  <li>✅ <strong>Step 3:</strong> JIT compiles method to machine code (on first call)</li>
+  <li>✅ <strong>Step 4:</strong> Machine code stored in memory and reused</li>
+</ul>
+<h4>🧠 Summary in Simple Flow:</h4>
+<pre><code>C# Code → Compiled to IL (build time)
+↓ Run Program → CLR loads IL
+↓ Method Called → JIT compiles to native code
+↓ Native code runs on CPU</code></pre>
+<h4>🔍 Types of JIT in .NET:</h4>
+<table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td>Normal JIT</td><td>Compiles code as needed (default behavior)</td></tr>
+  <tr><td>Econo JIT</td><td>Smaller code footprint, used in resource-limited devices</td></tr>
+  <tr><td>Pre-JIT (AOT)</td><td>Compiles entire IL code at install time (e.g., NGen, ReadyToRun)</td></tr>
+</table>
+
+<h4>⚙️ Real Example (Simplified):</h4>
+<pre><code>// IL Code (Generated behind the scenes):
+IL_0000: ldstr "Hello"
+IL_0005: call void [System.Console]::WriteLine(string)
+
+// JIT-Compiled (Simplified Native Code):
+MOV EAX, "Hello"
+CALL printf</code></pre>
+
+<h4>✅ Why JIT Is Smart</h4>
+<ul>
+  <li>⏱️ Compiles only what's needed → saves time and memory.</li>
+  <li>♻️ Reuses compiled code → boosts performance.</li>
+  <li>🌐 Optimizes for the actual environment (e.g., OS, CPU type).</li>
+</ul>
+<h4>🛠 Bonus: JIT vs AOT (Ahead of Time)</h4>
+<table>
+  <tr><th>Feature</th><th>JIT</th><th>AOT (e.g., Native AOT)</th></tr>
+  <tr><td>Timing</td><td>At runtime</td><td>At build or install time</td></tr>
+  <tr><td>Flexibility</td><td>Adapts to machine at runtime</td><td>Fixed, may be faster startup</td></tr>
+  <tr><td>Startup Time</td><td>Slower (compilation happens then)</td><td>Faster (already compiled)</td></tr>
+  <tr><td>Optimization</td><td>Dynamic runtime optimization</td><td>Static optimizations only</td></tr>
+</table>
+<h3>⚖️ Key Design Goals of C#:</h3>
+<ul>
+  <li>🧹 Garbage Collection – No need for manual memory management.</li>
+  <li>🔐 Type Safety – Prevents many runtime errors.</li>
+  <li>🚀 Productivity – Easy syntax, rich libraries, Visual Studio support.</li>
+  <li>🧱 OOP-based – Clear support for real-world modeling.</li>
+  <li>♻️ Interoperable – Can work with code written in VB.NET, F#, etc.</li>
+</ul>
+<h3>🔹 Example:</h3>
+<pre><code>using System;
+
+class HelloWorld {
+  static void Main() {
+    Console.WriteLine("Hello, C# World!");
+  }
+}</code></pre>
+<p>💡 <code>Console.WriteLine()</code> prints output to the screen.</p>
+<h3>📌 History and Evolution of C#</h3>
+<p>C# was introduced by Anders Hejlsberg (also known for creating Turbo Pascal and Delphi).</p>
+<p>Developed by Microsoft as part of the .NET Framework in 2000.</p>
+<p>Initially, it was meant to compete with Java in the Windows environment.</p>
+<h4>🔄 Evolution of C# (Major Versions):</h4>
+<table>
+  <tr><th>Version</th><th>Year</th><th>Major Features</th></tr>
+  <tr><td>C# 1.0</td><td>2002</td><td>Basic OOP features</td></tr>
+  <tr><td>C# 2.0</td><td>2005</td><td>Generics, Nullable Types</td></tr>
+  <tr><td>C# 3.0</td><td>2007</td><td>LINQ, Lambda Expressions</td></tr>
+  <tr><td>C# 4.0</td><td>2010</td><td>Dynamic Types</td></tr>
+  <tr><td>C# 5.0</td><td>2012</td><td>Async/Await</td></tr>
+  <tr><td>C# 6.0</td><td>2015</td><td>String Interpolation</td></tr>
+  <tr><td>C# 7.x</td><td>2017</td><td>Tuples, Pattern Matching</td></tr>
+  <tr><td>C# 8.0</td><td>2019</td><td>Nullable Reference Types</td></tr>
+  <tr><td>C# 9.0</td><td>2020</td><td>Records, Init-only setters</td></tr>
+  <tr><td>C# 10.0</td><td>2021</td><td>Global usings, File-scoped namespace</td></tr>
+  <tr><td>C# 11.0</td><td>2022</td><td>Raw string literals, list patterns</td></tr>
+  <tr><td>C# 12.0</td><td>2024</td><td>Primary constructors for any type, etc.</td></tr>
+</table>
+
+<h3>📌 C# vs Other Programming Languages</h3>
+<table>
+  <tr><th>Feature</th><th>C#</th><th>Java</th><th>C++</th><th>Python</th></tr>
+  <tr><td>Platform</td><td>Cross-platform (.NET Core)</td><td>Cross-platform (JVM)</td><td>Native (OS-specific)</td><td>Cross-platform</td></tr>
+  <tr><td>Compilation</td><td>Compiled to IL (Intermediate Language)</td><td>Compiled to bytecode</td><td>Compiled to machine code</td><td>Interpreted</td></tr>
+  <tr><td>Syntax</td><td>Similar to Java/C++</td><td>Verbose</td><td>Complex</td><td>Simple</td></tr>
+  <tr><td>Speed</td><td>Fast</td><td>Moderate</td><td>Fastest</td><td>Slower</td></tr>
+  <tr><td>Use Case</td><td>Enterprise, Web, Mobile, Game Dev</td><td>Enterprise, Android</td><td>System Software, Game Dev</td><td>AI, Data Science, Scripting</td></tr>
+  <tr><td>Memory Management</td><td>Garbage Collected</td><td>Garbage Collected</td><td>Manual</td><td>Garbage Collected</td></tr>
+</table>
+<h4>🔸 Examples in Different Languages:</h4>
+<pre><code>// C#
+Console.WriteLine("Hello, World!");
+
+// Java
+System.out.println("Hello, World!");
+
+// C++
+#include <iostream>
+int main() {
+  std::cout << "Hello, World!";
+  return 0;
+}
+
+// Python
+print("Hello, World!")</code></pre>
+
+<h3>✅ How C# Converts Code into Machine Code (Step-by-Step Compilation Process)</h3>
+<p>C# doesn’t compile directly to machine code like C or C++. Instead, it follows a 2-step compilation model using the .NET Framework (or .NET Core/.NET 5+).</p>
+<h4>🔁 Step-by-Step Process:</h4>
+<ul>
+  <li><strong>C# Code (Source Code):</strong> You write .cs files containing your code.</li>
+  <li><strong>C# Compiler (csc):</strong> Compiles the code into Intermediate Language (IL).</li>
+</ul>
+<p>✅ IL is platform-independent code, kind of like Java's bytecode.</p>
+<p>📄 This creates an assembly file: <code>.exe</code> for applications or <code>.dll</code> for libraries.</p>
+<ul>
+  <li><strong>IL + Metadata Stored in Assembly</strong>: Includes info about classes, methods, etc. This is a PE (Portable Executable) format.</li>
+  <li><strong>Execution by CLR</strong>: When you run the program, CLR performs:</li>
+  <ul>
+    <li>🔄 Just-In-Time (JIT) Compilation: Converts IL into native machine code.</li>
+    <li>⚙️ Memory Management</li>
+    <li>🧰 Runtime Services like exception handling and security</li>
+  </ul>
+</ul>
+<h4>📝 Visual Flow:</h4>
+<pre><code>Your C# Code (.cs)
+    ↓
+C# Compiler (csc)
+    ↓
+Intermediate Language (IL) + Metadata
+    ↓
+Stored in .exe or .dll
+    ↓
+CLR loads at runtime
+    ↓
+JIT compiles IL to native code
+    ↓
+Your Program Runs on Machine</code></pre>
+
+<h3>✅ What is JIT (Just-In-Time) Compilation?</h3>
+<p>JIT (Just-In-Time) compilation is a process where IL is converted into machine code just before execution.</p>
+<h4>🔧 How JIT Works: Step-by-Step</h4>
+<pre><code>// Example:
+Console.WriteLine("Hello, JIT!");</code></pre>
+<ul>
+  <li>✅ <strong>Step 1:</strong> C# code compiled to IL (stored in .exe/.dll)</li>
+  <li>✅ <strong>Step 2:</strong> CLR loads IL into memory</li>
+  <li>✅ <strong>Step 3:</strong> JIT compiles method to machine code (on first call)</li>
+  <li>✅ <strong>Step 4:</strong> Machine code stored in memory and reused</li>
+</ul>
+<h4>🧠 Summary in Simple Flow:</h4>
+<pre><code>C# Code → Compiled to IL (build time)
+↓ Run Program → CLR loads IL
+↓ Method Called → JIT compiles to native code
+↓ Native code runs on CPU</code></pre>
+<h4>🔍 Types of JIT in .NET:</h4>
+<table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td>Normal JIT</td><td>Compiles code as needed (default behavior)</td></tr>
+  <tr><td>Econo JIT</td><td>Smaller code footprint, used in resource-limited devices</td></tr>
+  <tr><td>Pre-JIT (AOT)</td><td>Compiles entire IL code at install time (e.g., NGen, ReadyToRun)</td></tr>
+</table>
+
+<h4>⚙️ Real Example (Simplified):</h4>
+<pre><code>// IL Code (Generated behind the scenes):
+IL_0000: ldstr "Hello"
+IL_0005: call void [System.Console]::WriteLine(string)
+
+// JIT-Compiled (Simplified Native Code):
+MOV EAX, "Hello"
+CALL printf</code></pre>
+
+<h4>✅ Why JIT Is Smart</h4>
+<ul>
+  <li>⏱️ Compiles only what's needed → saves time and memory.</li>
+  <li>♻️ Reuses compiled code → boosts performance.</li>
+  <li>🌐 Optimizes for the actual environment (e.g., OS, CPU type).</li>
+</ul>
+<h4>🛠 Bonus: JIT vs AOT (Ahead of Time)</h4>
+<table>
+  <tr><th>Feature</th><th>JIT</th><th>AOT (e.g., Native AOT)</th></tr>
+  <tr><td>Timing</td><td>At runtime</td><td>At build or install time</td></tr>
+  <tr><td>Flexibility</td><td>Adapts to machine at runtime</td><td>Fixed, may be faster startup</td></tr>
+  <tr><td>Startup Time</td><td>Slower (compilation happens then)</td><td>Faster (already compiled)</td></tr>
+  <tr><td>Optimization</td><td>Dynamic runtime optimization</td><td>Static optimizations only</td></tr>
+</table>
+      <p><strong>C#</strong> (pronounced as “C-Sharp”) is a modern, object-oriented programming language developed by Microsoft.</p>
+      <p>It was designed to be simple, powerful, type-safe, and modern.</p>
+      <p><strong>C# is used to build a wide range of applications:</strong></p>
+      <ul>
+        <li>Web applications (ASP.NET)</li>
+        <li>Desktop apps (Windows Forms/WPF)</li>
+        <li>Mobile apps (Xamarin/.NET MAUI)</li>
+        <li>Games (Unity Engine)</li>
+        <li>APIs and Cloud services</li>
+      </ul>
+      <!-- ... trimmed for brevity ... full version includes all detailed topic sections as provided -->
+    </div>
+  </div>
+</body>
+</html>
